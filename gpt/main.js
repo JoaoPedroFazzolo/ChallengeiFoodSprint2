@@ -27,11 +27,11 @@ const expensesCtx = document.getElementById('expensesChart').getContext('2d');
 const expensesChart = new Chart(expensesCtx, {
     type: 'doughnut',
     data: {
-        labels: ['Carne', 'Bacon', 'Pão', 'Leite', 'Outros'],
         datasets: [{
             data: [25, 25, 13, 12, 25],
             backgroundColor: ['#FF6347', '#FF4500', '#FFD700', '#FFB6C1', '#FF0000']
-        }]
+        }],
+        labels: ['Carne', 'Bacon', 'Pão', 'Leite', 'Outros']
         },
     options: {
         responsive: true

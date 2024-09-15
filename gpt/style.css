@@ -5,6 +5,10 @@ body {
 .sidebar {
     background-color: white;
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
     padding-top: 20px;
 }
 
@@ -24,6 +28,7 @@ body {
 
 .main-content {
     margin-left: 250px;
+    padding: 20px;
 }
 
 .card {
