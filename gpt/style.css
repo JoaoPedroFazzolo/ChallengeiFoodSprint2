@@ -1,0 +1,67 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    background-color: white;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    color: #ff0000;
+}
+
+.active {
+    color: #ff0000;
+}
+
+.main-content {
+    margin-left: 250px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    height: 300px;
+}
+
+.circle-chart {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.product-bar {
+    height: 20px;
+    margin-bottom: 10px;
+    background-color: #f8d7da;
+}
+
+.product-bar-1 {
+    width: 80%;
+}
+
+.product-bar-2 {
+    width: 60%;
+}
+
+.product-bar-3 {
+    width: 50%;
+}
+
+.product-bar-4 {
+    width: 70%;
+}
+
+.product-bar-5 {
+    width: 90%;
+}
