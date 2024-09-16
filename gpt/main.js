@@ -41,31 +41,30 @@ const updateChart = () => {
     const labels = [];
     const data = [];
     const backgroundColor = [];
-    
-    // Labels and data arrays
+
     if (document.getElementById('checkboxCarne').checked) {
         labels.push('Carne');
-        data.push(25); // Update with actual data
+        data.push(25); 
         backgroundColor.push('#FF6347');
     }
     if (document.getElementById('checkboxBacon').checked) {
         labels.push('Bacon');
-        data.push(25); // Update with actual data
+        data.push(25); 
         backgroundColor.push('#FF4500');
     }
     if (document.getElementById('checkboxPao').checked) {
         labels.push('Pão');
-        data.push(13); // Update with actual data
+        data.push(13); 
         backgroundColor.push('#FFD700');
     }
     if (document.getElementById('checkboxLeite').checked) {
         labels.push('Leite');
-        data.push(12); // Update with actual data
+        data.push(12); 
         backgroundColor.push('#FFB6C1');
     }
     if (document.getElementById('checkboxOutros').checked) {
         labels.push('Outros');
-        data.push(25); // Update with actual data
+        data.push(25); 
         backgroundColor.push('#FF0000');
     }
 
@@ -75,7 +74,6 @@ const updateChart = () => {
     expensesChart.update();
 };
 
-// Add event listeners
 document.getElementById('checkboxCarne').addEventListener('change', updateChart);
 document.getElementById('checkboxBacon').addEventListener('change', updateChart);
 document.getElementById('checkboxPao').addEventListener('change', updateChart);
