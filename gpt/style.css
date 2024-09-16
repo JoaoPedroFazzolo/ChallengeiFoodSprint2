@@ -9,22 +9,40 @@ html, body {
     font-size: 100%;
     line-height: 1;
     background-color: #f8f9fa;
+    overflow-x: hidden; /* Impede o scroll horizontal em todo o documento */
 }
 
 .sidebar {
     background-color: white;
     height: 100vh;
+    min-height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 260px;
+    width: 25vh; /* Ajuste a largura conforme necessário */
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Evita overflow na sidebar */
+}
+
+.sidebar img {
+    vertical-align: middle;/* Alinha verticalmente o ícone com o texto */
+    margin: 5px; 
 }
 
 .sidebar a {
     text-decoration: none;
     color: #666;
     font-weight: bold;
+    padding: 10px 0;
+    display: flex; /* Utiliza flexbox para alinhar ícones e texto */
+    align-items: center; /* Alinha verticalmente ícones e texto */
+    justify-content: space-between;
+    width: 100%; /* Garantia de que o link ocupe toda a largura disponível */
 }
 
 .sidebar a:hover {
@@ -36,8 +54,9 @@ html, body {
 }
 
 .main-content {
-    margin-left: 250px;
-    padding: 20px;
+    margin-left: 30vh; /* Ajuste a margem esquerda conforme necessário */
+    padding: 30px;
+    transition: margin-left 0.3s ease;
 }
 
 .card {
@@ -57,7 +76,7 @@ html, body {
 .product-bar {
     height: 20px;
     margin-bottom: 10px;
-    color: #201e1e;
+    color: #ffffff;
     font-weight: bold;
     display: grid;
     justify-content: center;
@@ -87,4 +106,90 @@ html, body {
 .product-bar-5 {
     width: 90%;
     background-color: #C40101;
+}
+
+/* Media Query para dispositivos menores que 975px */
+@media (max-width: 975px) {
+    .sidebar {
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1000;
+        padding: 10px 0; /* Ajusta o padding para evitar overflow */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .sidebar.active {
+        transform: translateY(0);
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove a margem esquerda */
+        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+/* Media Query para dispositivos menores que 768px */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1000;
+        padding: 10px 0; /* Ajusta o padding para evitar overflow */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .sidebar.active {
+        transform: translateY(0);
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove a margem esquerda */
+        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
 }
