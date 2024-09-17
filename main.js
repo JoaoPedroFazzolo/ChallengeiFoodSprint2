@@ -44,7 +44,7 @@ const updateChart = () => {
 
     if (document.getElementById('checkboxCarne').checked) {
         labels.push('Carne');
-        data.push(25);C40101
+        data.push(25);
         backgroundColor.push('#C40101');
     }
     if (document.getElementById('checkboxBacon').checked) {
