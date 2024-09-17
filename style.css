@@ -10,7 +10,7 @@ html, body {
     font-size: 100%;
     line-height: 1;
     background-color: #f8f9fa;
-    overflow-x: hidden; /* Impede o scroll horizontal em todo o documento */
+    overflow-x: hidden;
 }
 
 /* Estilos da Sidebar */
@@ -20,18 +20,18 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; /* Ajusta a largura conforme necessário */
+    width: 250px;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    align-items: center;
+    text-align: center;
     transition: transform 0.3s ease;
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    overflow-y: auto;
 }
 
 .sidebar img {
-    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
+    vertical-align: middle;
     margin: 5px; 
 }
 
@@ -40,10 +40,10 @@ html, body {
     color: #666;
     font-weight: bold;
     padding: 10px 0;
-    display: flex; /* Utiliza flexbox para alinhar ícones e texto */
-    align-items: center; /* Alinha verticalmente ícones e texto */
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    width: 100%; /* Garantia de que o link ocupe toda a largura disponível */
+    width: 100%;
 }
 
 .sidebar a:hover {
@@ -63,9 +63,9 @@ html, body {
     color: #ff0000;
 }
 
-/* Estilo do conteúdo principal */
+
 .main-content {
-    margin-left: 250px; /* Ajuste a margem esquerda conforme a largura da sidebar */
+    margin-left: 250px;
     padding: 30px;
     transition: margin-left 0.3s ease;
 }
@@ -75,7 +75,13 @@ html, body {
 }
 
 .chart-container {
-    height: 300px;
+    height: 100%;
+    width: auto;
+}
+
+.canvas {
+    width: 100% !important;
+    height: auto !important;
 }
 
 .circle-chart {
@@ -119,7 +125,7 @@ html, body {
     background-color: #C40101;
 }
 
-/* Media Query para dispositivos menores que 975px */
+
 @media (max-width: 975px) {
     .sidebar {
         height: auto;
@@ -129,15 +135,21 @@ html, body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; 
+        text-align: center; 
     }
 
     .sidebar.active {
         transform: translateY(0);
     }
 
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
     .main-content {
+        margin-top: 30px;
         margin-left: 0;
         padding: 30px;
     }
@@ -156,13 +168,18 @@ html, body {
         border-radius: 5px;
     }
 
-    .sidebar a {
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
+    .col-md-10, .col-md-5, .col-md-6, .col-md-11 {
+        width: 100%;
     }
+
+    .card {
+        margin-bottom: 20px;
+        width: 100%; 
+    }
+
 }
 
-/* Media Query para dispositivos menores que 768px */
+
 @media (max-width: 768px) {
     .sidebar {
         height: auto;
@@ -172,8 +189,8 @@ html, body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
+        padding: 10px 0; 
+        text-align: center; 
     }
 
     .sidebar.active {
@@ -181,8 +198,9 @@ html, body {
     }
 
     .main-content {
-        margin-left: 0; /* Remove a margem esquerda */
-        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+        margin-top: 30px;
+        margin-left: 0; 
+        padding: 30px; 
     }
 
     .toggle-btn {

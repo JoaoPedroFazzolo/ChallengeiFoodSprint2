@@ -1,4 +1,8 @@
 const salesCtx = document.getElementById('salesChart').getContext('2d');
+const expensesCtx = document.getElementById('expensesChart').getContext('2d');
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
 const salesChart = new Chart(salesCtx, {
     type: 'line',
     data: {
@@ -18,11 +22,20 @@ const salesChart = new Chart(salesCtx, {
             y: {
                 beginAtZero: true
             }
+        },
+        plugins: {
+            legend: {
+                display: true,         
+                position: 'bottom',   
+                labels: {
+                    usePointStyle: false,  
+                },
+                onClick: null           
+            }
         }
     }
 });
 
-const expensesCtx = document.getElementById('expensesChart').getContext('2d');
 const expensesChart = new Chart(expensesCtx, {
     type: 'doughnut',
     data: {
@@ -33,7 +46,18 @@ const expensesChart = new Chart(expensesCtx, {
         labels: ['Carne', 'Bacon', 'Pão', 'Leite', 'Outros']
     },
     options: {
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,         
+                position: 'bottom',    
+                labels: {
+                    usePointStyle: false, 
+                },
+                onClick: null           
+            }
+        }
     }
 });
 
@@ -73,9 +97,20 @@ const updateChart = () => {
     expensesChart.data.datasets[0].backgroundColor = backgroundColor;
     expensesChart.update();
 };
+window.addEventListener('resize', function() {
+    salesChart.resize();
+    expensesChart.resize();
+});
+
 
 document.getElementById('checkboxCarne').addEventListener('change', updateChart);
 document.getElementById('checkboxBacon').addEventListener('change', updateChart);
 document.getElementById('checkboxPao').addEventListener('change', updateChart);
 document.getElementById('checkboxLeite').addEventListener('change', updateChart);
 document.getElementById('checkboxOutros').addEventListener('change', updateChart);
+myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+})
+
+
+
