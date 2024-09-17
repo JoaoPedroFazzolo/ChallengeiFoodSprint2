@@ -5,12 +5,14 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-size: 100%;
     line-height: 1;
     background-color: #f8f9fa;
-    overflow-x: hidden; /* Impede o scroll horizontal em todo o documento */
+    overflow-x: hidden;
+    /* Impede o scroll horizontal em todo o documento */
 }
 
 /* Estilos da Sidebar */
@@ -20,19 +22,24 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; /* Ajusta a largura conforme necessário */
+    width: 250px;
+    /* Ajusta a largura conforme necessário */
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    text-align: center;
+    /* Centraliza o texto */
     transition: transform 0.3s ease;
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    overflow-y: auto;
+    /* Adiciona rolagem vertical se necessário */
 }
 
 .sidebar img {
-    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
-    margin: 5px; 
+    vertical-align: middle;
+    /* Alinha verticalmente o ícone com o texto */
+    margin: 5px;
 }
 
 .sidebar a {
@@ -40,10 +47,13 @@ html, body {
     color: #666;
     font-weight: bold;
     padding: 10px 0;
-    display: flex; /* Utiliza flexbox para alinhar ícones e texto */
-    align-items: center; /* Alinha verticalmente ícones e texto */
+    display: flex;
+    /* Utiliza flexbox para alinhar ícones e texto */
+    align-items: center;
+    /* Alinha verticalmente ícones e texto */
     justify-content: space-between;
-    width: 100%; /* Garantia de que o link ocupe toda a largura disponível */
+    width: 100%;
+    /* Garantia de que o link ocupe toda a largura disponível */
 }
 
 .sidebar a:hover {
@@ -65,7 +75,8 @@ html, body {
 
 /* Estilo do conteúdo principal */
 .main-content {
-    margin-left: 250px; /* Ajuste a margem esquerda conforme a largura da sidebar */
+    margin-left: 250px;
+    /* Ajuste a margem esquerda conforme a largura da sidebar */
     padding: 30px;
     transition: margin-left 0.3s ease;
 }
@@ -129,8 +140,10 @@ html, body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
+        padding: 10px 0;
+        /* Ajusta o padding para evitar overflow */
+        text-align: center;
+        /* Centraliza o texto */
     }
 
     .sidebar.active {
@@ -172,8 +185,10 @@ html, body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
+        padding: 10px 0;
+        /* Ajusta o padding para evitar overflow */
+        text-align: center;
+        /* Centraliza o texto */
     }
 
     .sidebar.active {
@@ -181,8 +196,10 @@ html, body {
     }
 
     .main-content {
-        margin-left: 0; /* Remove a margem esquerda */
-        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+        margin-left: 0;
+        /* Remove a margem esquerda */
+        padding: 30px;
+        /* Ajusta o padding para garantir espaço suficiente */
     }
 
     .toggle-btn {
