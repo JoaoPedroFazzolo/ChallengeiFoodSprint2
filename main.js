@@ -28,7 +28,7 @@ const expensesChart = new Chart(expensesCtx, {
     data: {
         datasets: [{
             data: [25, 25, 13, 12, 25],
-            backgroundColor: ['#FF6347', '#FF4500', '#FFD700', '#FFB6C1', '#FF0000']
+            backgroundColor: ['#C40101', '#F30101', '#EF4444', '#F76565', '#F77E7E']
         }],
         labels: ['Carne', 'Bacon', 'Pão', 'Leite', 'Outros']
     },
@@ -44,28 +44,28 @@ const updateChart = () => {
 
     if (document.getElementById('checkboxCarne').checked) {
         labels.push('Carne');
-        data.push(25); 
-        backgroundColor.push('#FF6347');
+        data.push(25);C40101
+        backgroundColor.push('#C40101');
     }
     if (document.getElementById('checkboxBacon').checked) {
         labels.push('Bacon');
         data.push(25); 
-        backgroundColor.push('#FF4500');
+        backgroundColor.push('#F30101');
     }
     if (document.getElementById('checkboxPao').checked) {
         labels.push('Pão');
         data.push(13); 
-        backgroundColor.push('#FFD700');
+        backgroundColor.push('#EF4444');
     }
     if (document.getElementById('checkboxLeite').checked) {
         labels.push('Leite');
         data.push(12); 
-        backgroundColor.push('#FFB6C1');
+        backgroundColor.push('#F76565');
     }
     if (document.getElementById('checkboxOutros').checked) {
         labels.push('Outros');
         data.push(25); 
-        backgroundColor.push('#FF0000');
+        backgroundColor.push('#F77E7E');
     }
 
     expensesChart.data.labels = labels;

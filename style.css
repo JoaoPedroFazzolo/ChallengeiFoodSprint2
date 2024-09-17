@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -12,25 +13,25 @@ html, body {
     overflow-x: hidden; /* Impede o scroll horizontal em todo o documento */
 }
 
+/* Estilos da Sidebar */
 .sidebar {
     background-color: white;
     height: 100vh;
-    min-height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 25vh; /* Ajuste a largura conforme necessário */
+    width: 250px; /* Ajusta a largura conforme necessário */
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza horizontalmente */
     text-align: center; /* Centraliza o texto */
     transition: transform 0.3s ease;
-    overflow: hidden; /* Evita overflow na sidebar */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
 }
 
 .sidebar img {
-    vertical-align: middle;/* Alinha verticalmente o ícone com o texto */
+    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
     margin: 5px; 
 }
 
@@ -49,12 +50,22 @@ html, body {
     color: #ff0000;
 }
 
+/* Estilo do título */
+.title {
+    color: #1F2937;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
 .active {
     color: #ff0000;
 }
 
+/* Estilo do conteúdo principal */
 .main-content {
-    margin-left: 30vh; /* Ajuste a margem esquerda conforme necessário */
+    margin-left: 250px; /* Ajuste a margem esquerda conforme a largura da sidebar */
     padding: 30px;
     transition: margin-left 0.3s ease;
 }
@@ -127,8 +138,8 @@ html, body {
     }
 
     .main-content {
-        margin-left: 0; /* Remove a margem esquerda */
-        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+        margin-left: 0;
+        padding: 30px;
     }
 
     .toggle-btn {
