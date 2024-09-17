@@ -1,4 +1,8 @@
 const salesCtx = document.getElementById('salesChart').getContext('2d');
+const DATA_DEFAULT = [25, 25, 13, 12, 25];
+const BACKGROUND_DEFAULT = ['#FF6347', '#FF4500', '#FFD700', '#FFB6C1', '#FF0000'];
+const LABELS_DEFAULT = ['Carne', 'Bacon', 'Pão', 'Leite', 'Outros'];
+
 const salesChart = new Chart(salesCtx, {
     type: 'line',
     data: {
@@ -38,41 +42,54 @@ const expensesChart = new Chart(expensesCtx, {
 });
 
 const updateChart = () => {
-    const labels = [];
-    const data = [];
-    const backgroundColor = [];
-
-    if (document.getElementById('checkboxCarne').checked) {
-        labels.push('Carne');
-        data.push(25); 
-        backgroundColor.push('#FF6347');
+    const chartInfos = {
+      labels: [],
+      data: [],
+      backgroundColor: [],
+    };
+  
+    if (document.getElementById("checkboxCarne").checked) {
+      chartInfos.labels.push("Carne");
+      chartInfos.data.push(25);
+      chartInfos.backgroundColor.push("#FF6347");
     }
-    if (document.getElementById('checkboxBacon').checked) {
-        labels.push('Bacon');
-        data.push(25); 
-        backgroundColor.push('#FF4500');
+    if (document.getElementById("checkboxBacon").checked) {
+      chartInfos.labels.push("Bacon");
+      chartInfos.data.push(25);
+      chartInfos.backgroundColor.push("#FF4500");
     }
-    if (document.getElementById('checkboxPao').checked) {
-        labels.push('Pão');
-        data.push(13); 
-        backgroundColor.push('#FFD700');
+    if (document.getElementById("checkboxPao").checked) {
+      chartInfos.labels.push("Pão");
+      chartInfos.data.push(13);
+      chartInfos.backgroundColor.push("#FFD700");
     }
-    if (document.getElementById('checkboxLeite').checked) {
-        labels.push('Leite');
-        data.push(12); 
-        backgroundColor.push('#FFB6C1');
+    if (document.getElementById("checkboxLeite").checked) {
+      chartInfos.labels.push("Leite");
+      chartInfos.data.push(12);
+      chartInfos.backgroundColor.push("#FFB6C1");
     }
-    if (document.getElementById('checkboxOutros').checked) {
-        labels.push('Outros');
-        data.push(25); 
-        backgroundColor.push('#FF0000');
+    if (document.getElementById("checkboxOutros").checked) {
+      chartInfos.labels.push("Outros");
+      chartInfos.data.push(25);
+      chartInfos.backgroundColor.push("#FF0000");
     }
-
-    expensesChart.data.labels = labels;
-    expensesChart.data.datasets[0].data = data;
-    expensesChart.data.datasets[0].backgroundColor = backgroundColor;
+  
+    if (
+      !chartInfos.labels.length &&
+      !chartInfos.data.length &&
+      !chartInfos.backgroundColor.length
+    ) {
+      expensesChart.data.labels = LABELS_DEFAULT;
+      expensesChart.data.datasets[0].data = DATA_DEFAULT;
+      expensesChart.data.datasets[0].backgroundColor = BACKGROUND_DEFAULT;
+    } else {
+      expensesChart.data.labels = chartInfos.labels;
+      expensesChart.data.datasets[0].data = chartInfos.data;
+      expensesChart.data.datasets[0].backgroundColor = chartInfos.backgroundColor;
+    }
+  
     expensesChart.update();
-};
+  };
 
 document.getElementById('checkboxCarne').addEventListener('change', updateChart);
 document.getElementById('checkboxBacon').addEventListener('change', updateChart);

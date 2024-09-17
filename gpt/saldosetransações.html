@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/logo-principal.svg" />
+    <title>Saldo e Transações - iFood</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar">
+      <nav class="nav flex-column mt-4">
+        <img src="./images/logo-principal.svg" class="img-fluid" alt="Logo" />
+        <div>
+          <a href="index.html" class="nav-link">
+            <img src="./images/menu-outline.svg" alt="" />
+            Financeiro
+            <img src="./images/chevron-left-outline.svg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="saldosetransações.html" class="nav-link">
+            <img src="./images/trader.svg" alt="" />
+            Saldo e Transações
+            <img src="./images/chevron-left-outline.svg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="#" class="nav-link">
+            <img src="./images/money.svg" alt="" />
+            Pagamentos e Recebíveis
+            <img src="./images/chevron-left-outline.svg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="#" class="nav-link">
+            <img src="./images/dot.svg" alt="" />
+            Análises Financeiras
+            <img src="./images/chevron-left-outline.svg" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="#" class="nav-link">
+            <img src="./images/shield.svg" alt="" />
+            Segurança e Controle
+            <img src="./images/chevron-left-outline.svg" alt="" />
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 offset-md-2 main-content">
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Saldo e Transações</h2>
+            <div class="d-flex">
+              <button class="btn btn-danger me-2">Relatório em Excel</button>
+              <button class="btn btn-danger">Relatório em PDF</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Balance Information -->
+        <div class="col-md-12">
+          <div class="card p-3 shadow mb-4 bg-body-tertiary rounded">
+            <div class="row text-center">
+              <div class="col-md-3">
+                <h4>Pedidos</h4>
+                <p class="fs-3">200</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Receita</h4>
+                <p class="fs-3 text-success">R$ 10.000,00</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Despesa</h4>
+                <p class="fs-3 text-danger">R$ 200,00</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Ticket Médio</h4>
+                <p class="fs-3">R$ 50,00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="col-md-12">
+          <input
+            type="text"
+            id="searchInput"
+            class="form-control mb-3"
+            placeholder="Pesquisar por Pedido"
+            onkeyup="filterTable()"
+          />
+        </div>
+
+        <!-- Transaction Table -->
+        <div class="col-md-12">
+          <div class="card p-3 shadow mb-4 bg-body-tertiary rounded">
+            <div class="table-responsive">
+              <table class="table table-striped" id="transactionTable">
+                <thead>
+                  <tr>
+                    <th>Número do Pedido</th>
+                    <th>Total Pago</th>
+                    <th>Total a Receber</th>
+                    <th>Data / Horário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0498</td>
+                    <td>R$ 60,00</td>
+                    <td>R$ 55,00</td>
+                    <td>13/06/24 - 19:55</td>
+                  </tr>
+                  <tr>
+                    <td>0497</td>
+                    <td>R$ 80,50</td>
+                    <td>R$ 80,50</td>
+                    <td>10/06/24 - 18:30</td>
+                  </tr>
+                  <tr>
+                    <td>0496</td>
+                    <td>R$ 85,50</td>
+                    <td>R$ 85,50</td>
+                    <td>07/06/24 - 16:45</td>
+                  </tr>
+                  <tr>
+                    <td>0495</td>
+                    <td>R$ 90,00</td>
+                    <td>R$ 75,00</td>
+                    <td>05/06/24 - 20:20</td>
+                  </tr>
+                  <tr>
+                    <td>0494</td>
+                    <td>R$ 20,50</td>
+                    <td>R$ 20,50</td>
+                    <td>04/06/24 - 15:10</td>
+                  </tr>
+                  <tr>
+                    <td>0493</td>
+                    <td>R$ 70,50</td>
+                    <td>R$ 70,50</td>
+                    <td>02/06/24 - 17:50</td>
+                  </tr>
+                  <tr>
+                    <td>0492</td>
+                    <td>R$ 65,00</td>
+                    <td>R$ 60,00</td>
+                    <td>01/06/24 - 14:05</td>
+                  </tr>
+                  <tr>
+                    <td>0491</td>
+                    <td>R$ 95,00</td>
+                    <td>R$ 85,00</td>
+                    <td>29/05/24 - 12:00</td>
+                  </tr>
+                  <tr>
+                    <td>0490</td>
+                    <td>R$ 78,00</td>
+                    <td>R$ 75,00</td>
+                    <td>27/05/24 - 10:55</td>
+                  </tr>
+                  <tr>
+                    <td>0489</td>
+                    <td>R$ 55,00</td>
+                    <td>R$ 50,00</td>
+                    <td>25/05/24 - 09:40</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("active");
+      }
+
+      function filterTable() {
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toUpperCase();
+        const table = document.getElementById("transactionTable");
+        const tr = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < tr.length; i++) {
+          const td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            const txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
