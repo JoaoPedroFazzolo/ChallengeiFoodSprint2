@@ -79,3 +79,16 @@ document.getElementById('checkboxBacon').addEventListener('change', updateChart)
 document.getElementById('checkboxPao').addEventListener('change', updateChart);
 document.getElementById('checkboxLeite').addEventListener('change', updateChart);
 document.getElementById('checkboxOutros').addEventListener('change', updateChart);
+
+// Login Page
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
