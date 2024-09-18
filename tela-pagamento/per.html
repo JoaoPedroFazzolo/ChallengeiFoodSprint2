@@ -59,8 +59,8 @@
           <div class="d-flex justify-content-between align-items-center">
             <h2>Pagamentos e Recebíveis</h2>
             <div class="d-flex">
-              <button class="btn btn-danger me-2">Relatório em Excel</button>
-              <button class="btn btn-danger">Relatório em PDF</button>
+              <button class="btn btn-danger me-2" id="excelBtn">Relatório em Excel</button>
+              <button class="btn btn-danger" id="pdfBtn">Relatório em PDF</button>
             </div>
           </div>
         </div>
@@ -196,6 +196,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     
     <script>
       function toggleSidebar() {
@@ -221,6 +224,21 @@
           }
         }
       }
+
+      // Baixar relatorio em Excel
+      document.getElementById('excelBtn').addEventListener('click', function() {
+        const table = document.getElementById('transactionTable');
+        const wb = XLSX.utils.table_to_book(table);
+        XLSX.writeFile(wb, 'relatorio.xlsx');
+      });
+
+      // Baixar relatorio em PDF
+      document.getElementById('pdfBtn').addEventListener('click', function() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.autoTable({ html: '#transactionTable' });
+        doc.save('relatorio.pdf');
+      });
     </script>
   </body>
 </html>
