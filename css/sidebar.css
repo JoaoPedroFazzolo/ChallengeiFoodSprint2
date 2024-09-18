@@ -12,10 +12,9 @@ body {
     line-height: 1;
     background-color: #f8f9fa;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
 }
 
-/* Sidebar */
+/* Estilos da Sidebar */
 .sidebar {
     background-color: white;
     height: 100vh;
@@ -52,16 +51,19 @@ body {
     color: #ff0000;
 }
 
-/* Conteúdo principal */
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
+/* Estilo do título */
+.title {
+    color: #1F2937;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    word-wrap: break-word;
 }
 
-/* Media Queries */
+.active {
+    color: #ff0000;
+}
 
-/* Menor que 975px */
 @media (max-width: 975px) {
     .sidebar {
         height: auto;
@@ -71,13 +73,21 @@ body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
     }
 
     .sidebar.active {
         transform: translateY(0);
     }
 
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
     .main-content {
+        margin-top: 30px;
         margin-left: 0;
         padding: 30px;
     }
@@ -94,48 +104,5 @@ body {
         font-size: 24px;
         cursor: pointer;
         border-radius: 5px;
-    }
-}
-
-/* Menor que 768px */
-@media (max-width: 768px) {
-    .d-flex {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .btn-custom {
-        padding: 20px 20px;
-        font-size: 1rem;
-    }
-
-    .sidebar img {
-        display: none;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-    }
-
-    .toggle-btn {
-        left: 20px;
-        top: 20px;
-    }
-}
-
-/* Menor que 575px */
-@media (max-width: 575px) {
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .btn-custom {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-
-    th,
-    td {
-        padding: 0.5rem;
     }
 }
