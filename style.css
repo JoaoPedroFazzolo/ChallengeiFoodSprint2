@@ -84,9 +84,9 @@ html, body {
     height: auto !important;
 }
 
-.circle-chart {
+.chart {
     width: 100%;
-    max-width: 200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
