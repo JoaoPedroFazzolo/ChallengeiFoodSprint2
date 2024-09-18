@@ -1,7 +1,7 @@
 // Array com os cargos
-const roles = ['Financeiro', 'Cardápio', 'Administrador', 'Atendimento'];
+const roles = ['Financeiro', 'Cardapio', 'Administrador', 'Atendimento'];
 
-// Função para cadastrar funcionário - Salvar
+// Função para cadastrar funcionario
 document.getElementById('saveEmployeeBtn').addEventListener('click', function () {
     const nome = document.getElementById('employeeName').value;
     const role = parseInt(document.getElementById('employeeRole').value);
@@ -13,12 +13,12 @@ document.getElementById('saveEmployeeBtn').addEventListener('click', function ()
         return;
     }
 
-    // Adicionar um funcionário à tabela
-    const tableBody = document.querySelector('.tabelaFuncionarios');  // Seleciona o tbody correto
-    const id = tableBody.children.length + 1;  // Gera um novo ID com base na quantidade de linhas da tabela
-    const newRow = document.createElement('tr'); // Cria uma nova linha na tabela
+    // Adicionar um funcionário a tabela
+    const tableBody = document.querySelector('.tabelaFuncionarios');
+    const id = tableBody.children.length + 1;  
+    const newRow = document.createElement('tr'); 
 
-    // Define o conteúdo da nova linha
+    // Define o conteudo da nova linha
     newRow.innerHTML = `
         <td>${id}</td>
         <td>${nome}</td>
@@ -27,14 +27,12 @@ document.getElementById('saveEmployeeBtn').addEventListener('click', function ()
         <td>-</td>
     `;
 
-    // Adiciona a nova linha à tabela
     tableBody.appendChild(newRow);
 
     // Fechar o modal após salvar o funcionário
     const addEmployeeModal = new bootstrap.Modal(document.getElementById('addEmployeeModal'));
     addEmployeeModal.hide();
 
-    // Limpar o formulário
     document.getElementById('addEmployeeForm').reset();
 });
 
@@ -50,13 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const employeeRole = document.getElementById('editEmployeeRole').value;
         const exclusionDate = document.getElementById('editEmployeeExclusionDate').value;
 
-        // Validar se o ID do funcionário foi fornecido
         if (!employeeId) {
             alert('Por favor, insira o ID do Funcionário.');
             return;
         }
 
-        // Encontrar a linha correspondente na tabela
         const tableBody = document.querySelector('.tabelaFuncionarios');
         const rows = tableBody.querySelectorAll('tr');
         let rowToUpdate = null;
@@ -68,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (rowToUpdate) {
-            // Atualizar os dados da linha na tabela
             rowToUpdate.cells[1].textContent = employeeName;
             rowToUpdate.cells[2].innerHTML = `
                     <p class="status ${getRoleClass(employeeRole)}">${getRoleName(employeeRole)}</p>
@@ -79,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Funções auxiliares para obter o nome e a classe do cargo
+    // Obter o nome e a classe do cargo
     function getRoleName(roleId) {
         switch (roleId) {
             case '1': return 'Financeiro';
@@ -101,5 +96,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function findEmployeeRowById(id) {
+    const rows = document.querySelectorAll('tbody tr');
+    return Array.from(rows).find(row => row.firstElementChild.textContent.trim() === id);
+}
+
+// Busca
+const searchInput = document.getElementById('searchInput');
 
 
+searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.trim().toLowerCase();
+    const tableRows = document.querySelectorAll('tbody tr');
+
+    tableRows.forEach(function (row) {
+        const rowData = row.textContent.trim().toLowerCase();
+        if (rowData.includes(filter)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
