@@ -15,13 +15,6 @@ body {
 }
 
 /* Estilo do título */
-.title {
-    color: #1F2937;
-    font-size: 100%;
-    font-weight: 500;
-    line-height: 24px;
-    word-wrap: break-word;
-}
 
 .main-content {
     margin-left: 250px;
