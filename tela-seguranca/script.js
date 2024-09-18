@@ -7,7 +7,7 @@ function findEmployeeRowById(id) {
     return Array.from(rows).find(row => row.firstElementChild.textContent.trim() === id);
 }
 
-// Cadastrar Funcionario
+// Cadastrar funcionario
 document.querySelectorAll('.btn-custom')[0].addEventListener('click', function () {
     const nome = prompt("Digite o nome do funcionário:");
     if (!nome) {
@@ -29,7 +29,7 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
         return;
     }
 
-    // Adicionar a pessoa para a tabela
+    // Adicionar um funcionario para a tabela
     const tableBody = document.querySelector('tbody');
     const newRow = document.createElement('tr');
     const id = tableBody.children.length + 1;
@@ -47,7 +47,7 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
     alert(`Funcionário ${nome} cadastrado com sucesso!`);
 });
 
-// Editar Funcionario
+// Editar funcionario
 document.querySelectorAll('.btn-custom')[1].addEventListener('click', function () {
     const id = prompt("Digite o ID do funcionário que deseja editar:");
     
@@ -59,19 +59,16 @@ document.querySelectorAll('.btn-custom')[1].addEventListener('click', function (
             return;
         }
 
-        // Allow user to change the role
         let newRole = prompt(`Escolha o novo cargo do funcionário (Digite o número):\n1. Financeiro\n2. Cardápio\n3. Administrador\n4. Atendimento`);
-        newRole = parseInt(newRole); // Convert input to number
+        newRole = parseInt(newRole);
 
         if (newRole >= 1 && newRole <= 4 && !isNaN(newRole)) {
-            // Update the role in the table
             const roleCell = employeeRow.children[2];
             roleCell.innerHTML = `<p class="status ${roles[newRole - 1].toLowerCase()}">${roles[newRole - 1]}</p>`;
         } else {
             alert("Cargo inválido. O cargo não foi alterado.");
         }
 
-        // Allow user to add "Data de exclusão"
         const dataExclusao = prompt("Digite a data de exclusão (dd/mm/yyyy) ou deixe em branco para não alterar:");
         if (dataExclusao) {
             employeeRow.children[4].textContent = dataExclusao;
@@ -83,7 +80,7 @@ document.querySelectorAll('.btn-custom')[1].addEventListener('click', function (
     }
 });
 
-// Search functionality for the table
+// Busca
 const searchInput = document.querySelector('.form-control');
 searchInput.addEventListener('input', function () {
     const filter = searchInput.value.toLowerCase();

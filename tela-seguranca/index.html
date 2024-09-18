@@ -5,146 +5,130 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/images/logo-principal.svg" />
-    <title>Segurança e Controle - iFood</title>
+    <title>Segurança e Controle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Sidebar -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-    <body>
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <!-- Menu Lateral -->
+    <div class="sidebar">
+        <nav class="nav flex-column mt-4">
+            <img src="/images/logo-principal.svg" class="img-fluid" alt="Logo" />
+            <div>
+                <a href="#" class="nav-link">
+                    <img src="/images/menu-outline.svg" alt="" />
+                    Financeiro
+                    <img src="/images/chevron-left-outline.svg" alt="" />
+                </a>
+            </div>
+            <div>
+                <a href="#" class="nav-link">
+                    <img src="/images/trader.svg" alt="" />
+                    Saldo e Transações
+                    <img src="/images/chevron-left-outline.svg" alt="" />
+                </a>
+            </div>
+            <div>
+                <a href="#" class="nav-link">
+                    <img src="/images/money.svg" alt="" />
+                    Pagamentos e Recebíveis
+                    <img src="/images/chevron-left-outline.svg" alt="" />
+                </a>
+            </div>
+            <div>
+                <a href="#" class="nav-link">
+                    <img src="/images/shield.svg" alt="" />
+                    Segurança e Controle
+                    <img src="/images/chevron-left-outline.svg" alt="" />
+                </a>
+            </div>
+        </nav>
+    </div>
 
-        <div class="sidebar">
-            <nav class="nav flex-column mt-4">
-                <img src="/images/logo-principal.svg" class="img-fluid" alt="Logo" />
-                <div>
-                    <a href="#" class="nav-link">
-                        <img src="/images/menu-outline.svg" alt="" />
-                        Financeiro
-                        <img src="/images/chevron-left-outline.svg" alt="" />
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="nav-link">
-                        <img src="/images/trader.svg" alt="" />
-                        Saldo e Transações
-                        <img src="/images/chevron-left-outline.svg" alt="" />
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="nav-link">
-                        <img src="/images/money.svg" alt="" />
-                        Pagamentos e Recebíveis
-                        <img src="/images/chevron-left-outline.svg" alt="" />
-                    </a>
-                </div>
-                <div>
-                    <a href="#" class="nav-link">
-                        <img src="/images/shield.svg" alt="" />
-                        Segurança e Controle
-                        <img src="/images/chevron-left-outline.svg" alt="" />
-                    </a>
-                </div>
-            </nav>
-        </div>
-        <!-- Main content -->
-        <div class="container-fluid main-content">
-            <!-- Header Section with Buttons -->
-            <div class="my-4" style="margin-left: 250px;">
-                <h2>Segurança e Controle</h2>
-                <!-- Container for Buttons and Table -->
+    <div class="main-content">
+        <div class="my-4">
+            <h2>Segurança e Controle</h2>
 
-                <!-- Flex container for the buttons, each taking 50% width -->
-                <div class="d-flex flex-md-row gap-2">
-                    <button class="btn btn-custom btn-lg">
-                        <i class="fas fa-user-plus"></i> Cadastrar Funcionário
-                    </button>
-                    <button class="btn btn-custom btn-lg">
-                        <i class="fas fa-edit"></i> Editar Funcionário
-                    </button>
-                </div>
+            <!-- Botões -->
+            <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-custom btn-lg">
+                    <i class="fas fa-user-plus"></i> Cadastrar Funcionário
+                </button>
+                <button class="btn btn-custom btn-lg">
+                    <i class="fas fa-edit"></i> Editar Funcionário
+                </button>
+            </div>
 
-                <!-- Search input and table -->
-                <div class="table-container mt-4">
-                    <input type="text" class="form-control mb-3" placeholder="Pesquisar por Nome">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th> ID </th>
-                                    <th> Nome </th>
-                                    <th> Cargo </th>
-                                    <th> Data de entrada </th>
-                                    <th> Data de exclusão </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> Miguel Souza </td>
-                                    <td>
-                                        <p class="status financeiro"> Financeiro </p>
-                                    </td>
-                                    <td> 05/06/2023 </td>
-                                    <td> - </td>
-                                </tr>
-                                <tr>
-                                    <td> 2 </td>
-                                    <td> Maia Sanchez </td>
-                                    <td>
-                                        <p class="status cardapio"> Cardápio </p>
-                                    </td>
-                                    <td> 12/07/2023 </td>
-                                    <td> 18/04/2024 </td>
-                                </tr>
-                                <tr>
-                                    <td> 3 </td>
-                                    <td> Helena Gomes </td>
-                                    <td>
-                                        <p class="status administrador"> Administrador </p>
-                                    </td>
-                                    <td> 07/08/2023 </td>
-                                    <td> - </td>
-                                </tr>
-                                <tr>
-                                    <td> 4 </td>
-                                    <td> Davi Rocha </td>
-                                    <td>
-                                        <p class="status atendimento"> Atendimento </p>
-                                    </td>
-                                    <td> 19/10/2023 </td>
-                                    <td> - </td>
-                                </tr>
-                                <tr>
-                                    <td> 5 </td>
-                                    <td> Victor Ruiz </td>
-                                    <td>
-                                        <p class="status atendimento"> Atendimento </p>
-                                    </td>
-                                    <td> 29/04/2024 </td>
-                                    <td> - </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Busca e tabela -->
+            <div class="table-container mt-4">
+                <input type="text" class="form-control mb-3" placeholder="Pesquisar por Nome">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Cargo</th>
+                                <th>Data de entrada</th>
+                                <th>Data de exclusão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Miguel Souza</td>
+                                <td><p class="status financeiro">Financeiro</p></td>
+                                <td>05/06/2023</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Maia Sanchez</td>
+                                <td><p class="status cardapio">Cardápio</p></td>
+                                <td>12/07/2023</td>
+                                <td>18/04/2024</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Helena Gomes</td>
+                                <td><p class="status administrador">Administrador</p></td>
+                                <td>07/08/2023</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Davi Rocha</td>
+                                <td><p class="status atendimento">Atendimento</p></td>
+                                <td>19/10/2023</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Victor Ruiz</td>
+                                <td><p class="status atendimento">Atendimento</p></td>
+                                <td>29/04/2024</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 
-        <script>
-            function toggleSidebar() {
-                const sidebar = document.querySelector(".sidebar");
-                sidebar.classList.toggle("active");
-            }
-        </script>
-
-    </body>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+</body>
 
 </html>

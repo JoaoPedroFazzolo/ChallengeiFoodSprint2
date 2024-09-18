@@ -9,15 +9,47 @@ html, body {
     font-size: 100%;
     line-height: 1;
     background-color: #f8f9fa;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Buttons custom styling */
+th {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Botões */
+button {
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
 .btn-custom {
     background-color: white;
-    color: #dc3545; /* Red color matching the theme */
+    color: #dc3545;
     border: 1px solid #e0e0e0;
-    padding: 15px 25px; /* Larger padding for bigger buttons */
+    padding: 15px 25px;
     font-size: 1.2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -30,25 +62,16 @@ html, body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/*Table container styling*/ 
 .table-container {
     background-color: white;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    width: 85%;
-}
-
-table {
     width: 100%;
-    border-collapse: collapse;
 }
 
-th, td {
-    padding: 1rem;
-    text-align: center;
-} 
+/* Editar as cores dos cargos */
 
 .status {
     padding: .4rem 0;
@@ -64,36 +87,52 @@ th, td {
 .status.cardapio {
     background-color: #d893a3;
     color: #b30021;
-}    
+}
 
 .status.administrador {
     background-color: #ebc474;
 }
 
 .status.atendimento {
-    background-color:#6fcaea;
+    background-color: #6fcaea;
 }
 
-/* Estilos da Sidebar */
+/* Arrumando o sistema de busca */
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #dc3545;
+    outline: none;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.2);
+}
+
+/* Menu lateral*/
 .sidebar {
     background-color: white;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px; /* Ajusta a largura conforme necessário */
+    width: 250px;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    align-items: center;
+    text-align: center;
     transition: transform 0.3s ease;
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    overflow-y: auto;
 }
 
 .sidebar img {
-    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
-    margin: 5px; 
+    vertical-align: middle;
+    margin: 5px;
 }
 
 .sidebar a {
@@ -101,17 +140,43 @@ th, td {
     color: #666;
     font-weight: bold;
     padding: 10px 0;
-    display: flex; /* Utiliza flexbox para alinhar ícones e texto */
-    align-items: center; /* Alinha verticalmente ícones e texto */
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    width: 100%; /* Garantia de que o link ocupe toda a largura disponível */
+    width: 100%;
 }
 
 .sidebar a:hover {
-    color: #ff0000;
+    color: #dc3545;
 }
 
-/* Media Query para dispositivos menores que 975px */
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+}
+
+.nav-link img {
+    margin-right: 0.8rem;
+}
+
+.sidebar {
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Responsivo para menores que 975px */
 @media (max-width: 975px) {
     .sidebar {
         height: auto;
@@ -121,8 +186,6 @@ th, td {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
     }
 
     .sidebar.active {
@@ -139,7 +202,7 @@ th, td {
         top: 10px;
         left: 10px;
         z-index: 1100;
-        background-color: #ff0000;
+        background-color: #dc3545;
         color: white;
         border: none;
         padding: 10px;
@@ -148,51 +211,70 @@ th, td {
         border-radius: 5px;
     }
 
-    .sidebar a {
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
-    }
-}
-
-/* Media Query para dispositivos menores que 768px */
-@media (max-width: 768px) {
     .sidebar {
-        height: auto;
-        width: 100%;
+        transform: translateX(-100%);
         position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-        z-index: 1000;
-        padding: 10px 0; /* Ajusta o padding para evitar overflow */
-        text-align: center; /* Centraliza o texto */
     }
-
     .sidebar.active {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 
     .main-content {
-        margin-left: 0; /* Remove a margem esquerda */
-        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+        padding: 2rem;
+        margin-left: 0;
+    }
+}
+
+/* Responsivo para menores que 768px*/
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-custom {
+        padding: 20px 20px;
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        margin-bottom: 1rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    .sidebar img {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 1rem;
     }
 
     .toggle-btn {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1100;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        padding: 10px;
-        font-size: 24px;
-        cursor: pointer;
-        border-radius: 5px;
+        left: 20px;
+        top: 20px;
+    }
+}
+
+/* Responsivo para menores que 575px */
+@media (max-width: 575px) {
+    h2 {
+        font-size: 1.5rem;
     }
 
-    .sidebar a {
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
+    .btn-custom {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
     }
 }
