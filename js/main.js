@@ -1,9 +1,9 @@
-import { createSalesChart } from "./salesChart.js";
-import { createExpensesChart, updateExpensesChart } from "./expensesChart.js";
+import { createSalesChart } from "./graficos/salesChart.js";
+import { createExpensesChart, updateExpensesChart } from "./graficos/expensesChart.js";
 import {
   createHorizontalBarChart,
   updateHorizontalChart,
-} from "./horizontalBarChart.js";
+} from "./graficos/horizontalBarChart.js";
 
 const salesCtx = document.getElementById("salesChart").getContext("2d");
 const expensesCtx = document.getElementById("expensesChart").getContext("2d");
