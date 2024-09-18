@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-size: 100%;
     line-height: 1;
@@ -32,7 +33,7 @@ html, body {
 
 .sidebar img {
     vertical-align: middle;
-    margin: 5px; 
+    margin: 5px;
 }
 
 .sidebar a {
@@ -87,6 +88,7 @@ html, body {
 .chart {
     width: 100%;
     max-width: 100%;
+
     margin: 0 auto;
 }
 
@@ -135,8 +137,8 @@ html, body {
         left: 0;
         transform: translateY(-100%);
         z-index: 1000;
-        padding: 10px 0; 
-        text-align: center; 
+        padding: 10px 0;
+        text-align: center;
     }
 
     .sidebar.active {
@@ -168,57 +170,16 @@ html, body {
         border-radius: 5px;
     }
 
-    .col-md-10, .col-md-5, .col-md-6, .col-md-11 {
+    .col-md-10,
+    .col-md-5,
+    .col-md-6,
+    .col-md-11 {
         width: 100%;
     }
 
     .card {
         margin-bottom: 20px;
-        width: 100%; 
-    }
-
-}
-
-
-@media (max-width: 768px) {
-    .sidebar {
-        height: auto;
         width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translateY(-100%);
-        z-index: 1000;
-        padding: 10px 0; 
-        text-align: center; 
     }
 
-    .sidebar.active {
-        transform: translateY(0);
-    }
-
-    .main-content {
-        margin-top: 30px;
-        margin-left: 0; 
-        padding: 30px; 
-    }
-
-    .toggle-btn {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1100;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        padding: 10px;
-        font-size: 24px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .sidebar a {
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
-    }
 }
