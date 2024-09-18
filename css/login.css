@@ -1,3 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+input {
+    font-family: 'Poppins', sans-serif;
+}
+
 .header {
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +27,7 @@
 .container {
     position: relative;
     width: 100%;
-    background-color: var(--cor-0);
+    background-color: #ffffff;
     min-height: 100vh;
     overflow: hidden;
 }
@@ -64,14 +75,14 @@ form.sign-in-form {
 
 .title {
     font-size: 2.2rem;
-    color: var(--cor-12);
+    color: #3e3e3e;
     margin-bottom: 10px;
 }
 
 .input-field {
     max-width: 380px;
     width: 100%;
-    background-color: var(--cor-1);
+    background-color: #f2f2f2;
     margin: 10px 0;
     height: 55px;
     border-radius: 55px;
@@ -84,7 +95,7 @@ form.sign-in-form {
 .input-field i {
     text-align: center;
     line-height: 55px;
-    color: var(--cor-12);
+    color: #3e3e3e;
     transition: 0.5s;
     font-size: 1.1rem;
 }
@@ -96,11 +107,11 @@ form.sign-in-form {
     line-height: 1;
     font-weight: 600;
     font-size: 1.1rem;
-    color: var(--cor-12);
+    color: #3e3e3e;
 }
 
 .input-field input::placeholder {
-    color: var(--cor-12);
+    color: #3e3e3e;
     font-weight: 500;
 }
 
@@ -121,36 +132,40 @@ form.sign-in-form {
     justify-content: center;
     align-items: center;
     margin: 0 0.45rem;
-    color: var(--cor-12);
+    color: #3e3e3e;
     border-radius: 50%;
-    border: 1px solid var(--cor-12);
+    border: 1px solid #3e3e3e;
     text-decoration: none;
     font-size: 1.1rem;
     transition: 0.3s;
 }
 
 .social-icon:hover {
-    color: var(--cor-10);
-    border-color: var(--cor-10);
+    color: #ff0000;
+    border-color: #ff0000;
 }
 
 .btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
     width: 150px;
-    background-color: var(--cor-8);
+    background-color: #ea1d2c;
     border: none;
     outline: none;
     height: 49px;
     border-radius: 49px;
-    color: var(--cor-0);
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
+    line-height: 49px;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .btn:hover {
-    background-color: var(--cor-11);
+    background-color: #c40101;
 }
 
 .panels-container {
@@ -203,7 +218,7 @@ form.sign-in-form {
 }
 
 .panel .content {
-    color: var(--cor-0);
+    color: #ffffff;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
 }
