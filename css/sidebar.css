@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 100%;
+    line-height: 1;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar img {
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sidebar a:hover {
+    color: #ff0000;
+}
+
+/* Conteúdo principal */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Media Queries */
+
+/* Menor que 975px */
+@media (max-width: 975px) {
+    .sidebar {
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        transform: translateY(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 30px;
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+}
+
+/* Menor que 768px */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-custom {
+        padding: 20px 20px;
+        font-size: 1rem;
+    }
+
+    .sidebar img {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .toggle-btn {
+        left: 20px;
+        top: 20px;
+    }
+}
+
+/* Menor que 575px */
+@media (max-width: 575px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-custom {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+}
