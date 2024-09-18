@@ -277,4 +277,8 @@ input[type="text"]:focus {
     th, td {
         padding: 0.5rem;
     }
+
+    table {
+        overflow: scroll;
+    }
 }
