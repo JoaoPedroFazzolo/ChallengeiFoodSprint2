@@ -41,22 +41,26 @@ const salesChart = new Chart(salesCtx, {
   },
 });
 
+const initialExpensesLabels = ["Carne", "Bacon", "Pão", "Leite", "Outros"];
+const initialExpensesData = [25, 25, 13, 12, 25];
+const initialExpensesBackgroundColor = [
+  "#C40101",
+  "#F30101",
+  "#EF4444",
+  "#F76565",
+  "#F77E7E",
+];
+
 const expensesChart = new Chart(expensesCtx, {
   type: "doughnut",
   data: {
+    labels: [...initialExpensesLabels],
     datasets: [
       {
-        data: [25, 25, 13, 12, 25],
-        backgroundColor: [
-          "#C40101",
-          "#F30101",
-          "#EF4444",
-          "#F76565",
-          "#F77E7E",
-        ],
+        data: [...initialExpensesData],
+        backgroundColor: [...initialExpensesBackgroundColor],
       },
     ],
-    labels: ["Carne", "Bacon", "Pão", "Leite", "Outros"],
   },
   options: {
     responsive: true,
@@ -105,41 +109,47 @@ const updateChart = () => {
     backgroundColor.push("#F77E7E");
   }
 
-  expensesChart.data.labels = labels;
-  expensesChart.data.datasets[0].data = data;
-  expensesChart.data.datasets[0].backgroundColor = backgroundColor;
+  if (labels.length === 0) {
+    // Reseta para o estado inicial
+    expensesChart.data.labels = [...initialExpensesLabels];
+    expensesChart.data.datasets[0].data = [...initialExpensesData];
+    expensesChart.data.datasets[0].backgroundColor = [
+      ...initialExpensesBackgroundColor,
+    ];
+  } else {
+    expensesChart.data.labels = labels;
+    expensesChart.data.datasets[0].data = data;
+    expensesChart.data.datasets[0].backgroundColor = backgroundColor;
+  }
+
   expensesChart.update();
 };
 
-document
-  .getElementById("checkboxCarne")
-  .addEventListener("change", updateChart);
-document
-  .getElementById("checkboxBacon")
-  .addEventListener("change", updateChart);
-document.getElementById("checkboxPao").addEventListener("change", updateChart);
-document
-  .getElementById("checkboxLeite")
-  .addEventListener("change", updateChart);
-document
-  .getElementById("checkboxOutros")
-  .addEventListener("change", updateChart);
+const initialHorizontalLabels = [
+  "X-Burguer",
+  "X-Bacon",
+  "X-Bacon-Egg",
+  "X-Tudo",
+  "Outros",
+];
+const initialHorizontalData = [12, 19, 3, 5, 7];
+const initialHorizontalBackgroundColor = [
+  "#C40101",
+  "#F30101",
+  "#EF4444",
+  "#F76565",
+  "#F77E7E",
+];
 
 const horizontalBarChart = new Chart(horizontalCtx, {
   type: "bar",
   data: {
-    labels: ["X-Burguer", "X-Bacon", "X-Bacon-Egg", "X-Tudo", "Outros"],
+    labels: [...initialHorizontalLabels],
     datasets: [
       {
         label: "Vendas",
-        data: [12, 19, 3, 5, 7],
-        backgroundColor: [
-          "#C40101",
-          "#F30101",
-          "#EF4444",
-          "#F76565",
-          "#F77E7E",
-        ],
+        data: [...initialHorizontalData],
+        backgroundColor: [...initialHorizontalBackgroundColor],
       },
     ],
   },
@@ -196,27 +206,52 @@ const updateHorizontalChart = () => {
     backgroundColor.push("#F77E7E");
   }
 
-  horizontalBarChart.data.labels = labels;
-  horizontalBarChart.data.datasets[0].data = data;
-  horizontalBarChart.data.datasets[0].backgroundColor = backgroundColor;
+  if (labels.length === 0) {
+    // Reseta para o estado inicial
+    horizontalBarChart.data.labels = [...initialHorizontalLabels];
+    horizontalBarChart.data.datasets[0].data = [...initialHorizontalData];
+    horizontalBarChart.data.datasets[0].backgroundColor = [
+      ...initialHorizontalBackgroundColor,
+    ];
+  } else {
+    horizontalBarChart.data.labels = labels;
+    horizontalBarChart.data.datasets[0].data = data;
+    horizontalBarChart.data.datasets[0].backgroundColor = backgroundColor;
+  }
+
   horizontalBarChart.update();
 };
 
-document
-  .getElementById("checkboxXBurguer")
-  .addEventListener("change", updateHorizontalChart);
-document
-  .getElementById("checkboxXBacon2")
-  .addEventListener("change", updateHorizontalChart);
-document
-  .getElementById("checkboxXBaconEgg")
-  .addEventListener("change", updateHorizontalChart);
-document
-  .getElementById("checkboxXTudo")
-  .addEventListener("change", updateHorizontalChart);
-document
-  .getElementById("checkboxOutros2")
-  .addEventListener("change", updateHorizontalChart);
+// Função genérica para registrar eventos de checkboxes
+const registerCheckboxEvents = (checkboxIds, updateFunction) => {
+  checkboxIds.forEach((id) => {
+    document.getElementById(id).addEventListener("change", updateFunction);
+  });
+};
+
+// Registra eventos para o gráfico de despesas
+registerCheckboxEvents(
+  [
+    "checkboxCarne",
+    "checkboxBacon",
+    "checkboxPao",
+    "checkboxLeite",
+    "checkboxOutros",
+  ],
+  updateChart
+);
+
+// Registra eventos para o gráfico de vendas horizontais
+registerCheckboxEvents(
+  [
+    "checkboxXBurguer",
+    "checkboxXBacon2",
+    "checkboxXBaconEgg",
+    "checkboxXTudo",
+    "checkboxOutros2",
+  ],
+  updateHorizontalChart
+);
 
 window.addEventListener("resize", function () {
   salesChart.resize();
