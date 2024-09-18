@@ -1,39 +1,24 @@
-// Cargos existentes
-const roles = ['Financeiro', 'Cardapio', 'Administrador', 'Atendimento'];
+// Array com os cargos
+const roles = ['Financeiro', 'Cardápio', 'Administrador', 'Atendimento'];
 
-// Função para achar a pessoa pelo ID
-function findEmployeeRowById(id) {
-    const rows = document.querySelectorAll('tbody tr');
-    return Array.from(rows).find(row => row.firstElementChild.textContent.trim() === id);
-}
+// Função para cadastrar funcionário - Salvar
+document.getElementById('saveEmployeeBtn').addEventListener('click', function () {
+    const nome = document.getElementById('employeeName').value;
+    const role = parseInt(document.getElementById('employeeRole').value);
+    const dataEntrada = document.getElementById('employeeDate').value;
 
-// Cadastrar funcionario
-document.querySelectorAll('.btn-custom')[0].addEventListener('click', function () {
-    const nome = prompt("Digite o nome do funcionário:");
-    if (!nome) {
-        alert("Por favor, insira o nome do funcionário.");
+    // Verifica se todos os campos estão preenchidos corretamente
+    if (!nome || isNaN(role) || !dataEntrada) {
+        alert("Por favor, preencha todos os campos corretamente.");
         return;
     }
 
-    let role = prompt(`Escolha o cargo do funcionário (Digite o número):\n1. Financeiro\n2. Cardápio\n3. Administrador\n4. Atendimento`);
-    role = parseInt(role);
+    // Adicionar um funcionário à tabela
+    const tableBody = document.querySelector('.tabelaFuncionarios');  // Seleciona o tbody correto
+    const id = tableBody.children.length + 1;  // Gera um novo ID com base na quantidade de linhas da tabela
+    const newRow = document.createElement('tr'); // Cria uma nova linha na tabela
 
-    if (role < 1 || role > 4 || isNaN(role)) {
-        alert("Escolha inválida. Por favor, insira um número de 1 a 4.");
-        return;
-    }
-
-    const dataEntrada = prompt("Digite a data de entrada (dd/mm/yyyy):");
-    if (!dataEntrada) {
-        alert("Por favor, insira a data de entrada.");
-        return;
-    }
-
-    // Adicionar um funcionario para a tabela
-    const tableBody = document.querySelector('tbody');
-    const newRow = document.createElement('tr');
-    const id = tableBody.children.length + 1;
-
+    // Define o conteúdo da nova linha
     newRow.innerHTML = `
         <td>${id}</td>
         <td>${nome}</td>
@@ -42,56 +27,79 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
         <td>-</td>
     `;
 
+    // Adiciona a nova linha à tabela
     tableBody.appendChild(newRow);
 
-    alert(`Funcionário ${nome} cadastrado com sucesso!`);
+    // Fechar o modal após salvar o funcionário
+    const addEmployeeModal = new bootstrap.Modal(document.getElementById('addEmployeeModal'));
+    addEmployeeModal.hide();
+
+    // Limpar o formulário
+    document.getElementById('addEmployeeForm').reset();
 });
 
-// Editar funcionario
-document.querySelectorAll('.btn-custom')[1].addEventListener('click', function () {
-    const id = prompt("Digite o ID do funcionário que deseja editar:");
-    
-    if (id) {
-        const employeeRow = findEmployeeRowById(id);
 
-        if (!employeeRow) {
-            alert(`Funcionário com ID ${id} não encontrado.`);
+document.addEventListener('DOMContentLoaded', function () {
+    const updateEmployeeBtn = document.getElementById('updateEmployeeBtn');
+    const editEmployeeForm = document.getElementById('editEmployeeForm');
+
+    updateEmployeeBtn.addEventListener('click', function () {
+        // Obter dados do formulário
+        const employeeId = document.getElementById('editEmployeeId').value;
+        const employeeName = document.getElementById('editEmployeeName').value;
+        const employeeRole = document.getElementById('editEmployeeRole').value;
+        const exclusionDate = document.getElementById('editEmployeeExclusionDate').value;
+
+        // Validar se o ID do funcionário foi fornecido
+        if (!employeeId) {
+            alert('Por favor, insira o ID do Funcionário.');
             return;
         }
 
-        let newRole = prompt(`Escolha o novo cargo do funcionário (Digite o número):\n1. Financeiro\n2. Cardápio\n3. Administrador\n4. Atendimento`);
-        newRole = parseInt(newRole);
+        // Encontrar a linha correspondente na tabela
+        const tableBody = document.querySelector('.tabelaFuncionarios');
+        const rows = tableBody.querySelectorAll('tr');
+        let rowToUpdate = null;
 
-        if (newRole >= 1 && newRole <= 4 && !isNaN(newRole)) {
-            const roleCell = employeeRow.children[2];
-            roleCell.innerHTML = `<p class="status ${roles[newRole - 1].toLowerCase()}">${roles[newRole - 1]}</p>`;
+        rows.forEach(row => {
+            if (row.cells[0].textContent === employeeId) {
+                rowToUpdate = row;
+            }
+        });
+
+        if (rowToUpdate) {
+            // Atualizar os dados da linha na tabela
+            rowToUpdate.cells[1].textContent = employeeName;
+            rowToUpdate.cells[2].innerHTML = `
+                    <p class="status ${getRoleClass(employeeRole)}">${getRoleName(employeeRole)}</p>
+                `;
+            rowToUpdate.cells[4].textContent = exclusionDate || '-';
         } else {
-            alert("Cargo inválido. O cargo não foi alterado.");
+            alert('Funcionário não encontrado.');
         }
+    });
 
-        const dataExclusao = prompt("Digite a data de exclusão (dd/mm/yyyy) ou deixe em branco para não alterar:");
-        if (dataExclusao) {
-            employeeRow.children[4].textContent = dataExclusao;
+    // Funções auxiliares para obter o nome e a classe do cargo
+    function getRoleName(roleId) {
+        switch (roleId) {
+            case '1': return 'Financeiro';
+            case '2': return 'Cardápio';
+            case '3': return 'Administrador';
+            case '4': return 'Atendimento';
+            default: return 'Desconhecido';
         }
+    }
 
-        alert(`Funcionário com ID ${id} editado com sucesso!`);
-    } else {
-        alert("Por favor, insira um ID válido.");
+    function getRoleClass(roleId) {
+        switch (roleId) {
+            case '1': return 'financeiro';
+            case '2': return 'cardapio';
+            case '3': return 'administrador';
+            case '4': return 'atendimento';
+            default: return 'desconhecido';
+        }
     }
 });
 
-// Busca
-const searchInput = document.querySelector('.form-control');
-searchInput.addEventListener('input', function () {
-    const filter = searchInput.value.toLowerCase();
-    const tableRows = document.querySelectorAll('tbody tr');
 
-    tableRows.forEach(function (row) {
-        const rowData = row.textContent.toLowerCase();
-        if (rowData.includes(filter)) {
-            row.style.display = '';
-        } else {
-            row.style.display = 'none';
-        }
-    });
-});
+
