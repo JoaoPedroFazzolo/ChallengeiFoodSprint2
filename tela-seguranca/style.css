@@ -15,7 +15,7 @@ html, body {
 /* Buttons custom styling */
 .btn-custom {
     background-color: white;
-    color: #FF0000; /* Red color matching the theme */
+    color: #dc3545; /* Red color matching the theme */
     border: 1px solid #e0e0e0;
     padding: 15px 25px; /* Larger padding for bigger buttons */
     font-size: 1.2rem;
@@ -40,26 +40,6 @@ html, body {
     width: 85%;
 }
 
-.table-container input {
-    max-width: 85%;
-    margin: 0 auto;
-}
-
-.table-container::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
-.table-container::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-}
-
-.table-container:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -68,20 +48,7 @@ table {
 th, td {
     padding: 1rem;
     text-align: center;
-}
-
-thead, th {
-    position: sticky;
-    top: 0;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #0000000b;
-}   
-
-tbody tr:hover {
-    background-color: #fff6;
-}
+} 
 
 .status {
     padding: .4rem 0;
@@ -107,26 +74,26 @@ tbody tr:hover {
     background-color:#6fcaea;
 }
 
-/* Sidebar styling */
+/* Estilos da Sidebar */
 .sidebar {
     background-color: white;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 250px; /* Ajusta a largura conforme necessário */
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
     transition: transform 0.3s ease;
-    overflow-y: auto;
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
 }
 
 .sidebar img {
-    vertical-align: middle;
-    margin: 5px;
+    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
+    margin: 5px; 
 }
 
 .sidebar a {
@@ -134,50 +101,98 @@ tbody tr:hover {
     color: #666;
     font-weight: bold;
     padding: 10px 0;
-    display: flex;
-    align-items: center;
+    display: flex; /* Utiliza flexbox para alinhar ícones e texto */
+    align-items: center; /* Alinha verticalmente ícones e texto */
     justify-content: space-between;
-    width: 100%;
+    width: 100%; /* Garantia de que o link ocupe toda a largura disponível */
 }
 
 .sidebar a:hover {
     color: #ff0000;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
+/* Media Query para dispositivos menores que 975px */
+@media (max-width: 975px) {
     .sidebar {
-        width: 200px;
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1000;
+        padding: 10px 0; /* Ajusta o padding para evitar overflow */
+        text-align: center; /* Centraliza o texto */
     }
 
-    .container-fluid {
-        margin-left: 200px;
-        padding: 0 15px;
+    .sidebar.active {
+        transform: translateY(0);
     }
 
-    .btn-custom {
-        width: 100%; /* Full width for buttons on small screens */
+    .main-content {
+        margin-left: 0;
+        padding: 30px;
     }
 
-    table {
-        font-size: 0.9rem;
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 5px;
     }
 
-    th, td {
-        padding: 0.3rem;
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
     }
 }
 
-@media (max-width: 576px) {
+/* Media Query para dispositivos menores que 768px */
+@media (max-width: 768px) {
     .sidebar {
-        width: 180px;
+        height: auto;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1000;
+        padding: 10px 0; /* Ajusta o padding para evitar overflow */
+        text-align: center; /* Centraliza o texto */
     }
 
-    .container-fluid {
-        margin-left: 180px;
+    .sidebar.active {
+        transform: translateY(0);
     }
 
-    table, th, td {
-        font-size: 0.8rem;
+    .main-content {
+        margin-left: 0; /* Remove a margem esquerda */
+        padding: 30px; /* Ajusta o padding para garantir espaço suficiente */
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
     }
 }

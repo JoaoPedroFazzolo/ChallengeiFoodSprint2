@@ -1,13 +1,13 @@
-// Predefined roles for the employee
+// Cargos existentes
 const roles = ['Financeiro', 'Cardapio', 'Administrador', 'Atendimento'];
 
-// Function to find a row by employee ID
+// Função para achar a pessoa pelo ID
 function findEmployeeRowById(id) {
     const rows = document.querySelectorAll('tbody tr');
     return Array.from(rows).find(row => row.firstElementChild.textContent.trim() === id);
 }
 
-// Event listener for "Cadastrar Funcionario" button
+// Cadastrar Funcionario
 document.querySelectorAll('.btn-custom')[0].addEventListener('click', function () {
     const nome = prompt("Digite o nome do funcionário:");
     if (!nome) {
@@ -15,9 +15,8 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
         return;
     }
 
-    // Show predefined roles as a list to choose from
     let role = prompt(`Escolha o cargo do funcionário (Digite o número):\n1. Financeiro\n2. Cardápio\n3. Administrador\n4. Atendimento`);
-    role = parseInt(role); // Convert input to number
+    role = parseInt(role);
 
     if (role < 1 || role > 4 || isNaN(role)) {
         alert("Escolha inválida. Por favor, insira um número de 1 a 4.");
@@ -30,10 +29,10 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
         return;
     }
 
-    // Add new employee to the table
+    // Adicionar a pessoa para a tabela
     const tableBody = document.querySelector('tbody');
     const newRow = document.createElement('tr');
-    const id = tableBody.children.length + 1; // Increment ID based on number of rows
+    const id = tableBody.children.length + 1;
 
     newRow.innerHTML = `
         <td>${id}</td>
@@ -48,7 +47,7 @@ document.querySelectorAll('.btn-custom')[0].addEventListener('click', function (
     alert(`Funcionário ${nome} cadastrado com sucesso!`);
 });
 
-// Event listener for "Editar Funcionario" button
+// Editar Funcionario
 document.querySelectorAll('.btn-custom')[1].addEventListener('click', function () {
     const id = prompt("Digite o ID do funcionário que deseja editar:");
     
