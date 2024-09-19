@@ -1,5 +1,7 @@
 // Array com os cargos
 const roles = ['Financeiro', 'Cardápio', 'Administrador', 'Atendimento'];
+const myModal = document.getElementById('addEmployeeModalLabel')
+const myInput = document.getElementById('editEmployeeModalLabel')
 
 // Função para cadastrar funcionário - Salvar
 document.getElementById('saveEmployeeBtn').addEventListener('click', function () {
@@ -101,5 +103,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function findEmployeeRowById(id) {
+    const rows = document.querySelectorAll('tbody tr');
+    return Array.from(rows).find(row => row.firstElementChild.textContent.trim() === id);
+}
 
+// Busca
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.trim().toLowerCase();  // Converte o valor da busca para minúsculas
+    const tableRows = document.querySelectorAll('tbody tr');  // Seleciona todas as linhas da tabela
+
+    tableRows.forEach(function (row) {
+        let rowMatches = false;
+
+        // Verifica todas as células da linha
+        row.querySelectorAll('td').forEach(function (cell) {
+            const cellText = cell.textContent.trim().toLowerCase();  // Converte o texto da célula para minúsculas
+            if (cellText.includes(filter)) {  // Verifica se a célula contém o valor de busca
+                rowMatches = true;
+            }
+        });
+
+        // Exibe ou oculta a linha com base na correspondência
+        row.style.display = rowMatches ? '' : 'none';
+    });
+});
 
