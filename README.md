@@ -39,4 +39,4 @@ Aqui estão as seções principais da nossa apresentação. As imagens abaixo re
 ## Como Executar o Projeto
 1. Clone o repositório
    ```bash
-   git clone [https://github.com/usuario/nome-do-repositorio.git ](https://github.com/JoaoPedroFazzolo/challengerIfood.git)
+   git clone [https://github.com/JoaoPedroFazzolo/challengerIfood.git]
