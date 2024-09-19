@@ -1,19 +1,23 @@
-function filterTable() {
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toUpperCase();
-  const table = document.getElementById("transactionTable");
-  const tr = table.getElementsByTagName("tr");
+// Busca
+const searchInput = document.getElementById('searchInput');
 
-  for (let i = 1; i < tr.length; i++) {
-    const td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      const txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
+searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.trim().toLowerCase();  // Converte o valor da busca para minúsculas
+    const tableRows = document.querySelectorAll('tbody tr');  // Seleciona todas as linhas da tabela
+
+    tableRows.forEach(function (row) {
+        let rowMatches = false;
+
+        // Verifica todas as células da linha
+        row.querySelectorAll('td').forEach(function (cell) {
+            const cellText = cell.textContent.trim().toLowerCase();  // Converte o texto da célula para minúsculas
+            if (cellText.includes(filter)) {  // Verifica se a célula contém o valor de busca
+                rowMatches = true;
+            }
+        });
+
+        // Exibe ou oculta a linha com base na correspondência
+        row.style.display = rowMatches ? '' : 'none';
+    });
+});
 
