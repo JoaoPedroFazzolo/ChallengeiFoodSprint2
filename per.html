@@ -28,18 +28,16 @@
       <h2>Pagamentos e Recebíveis</h2>
 
       <!-- Botões -->
-      <div class="col-auto">
+      <div class="col-auto d-flex gap-2">
         <button type="button" class="btn btn-danger m-1" id="excelBtn">
-          <img src="./images/relatorio.svg" alt="" />
+          <img src="./images/relatorio.svg" alt="Ícone de Relatório Excel" />
           Relatório Excel
         </button>
         <button type="button" class="btn btn-danger m-1" id="pdfBtn">
-          <img src="./images/relatorio.svg" alt="" />
+          <img src="./images/relatorio.svg" alt="Ícone de Relatório PDF" />
           Relatório PDF
         </button>
       </div>
-
-
       <div class="table-container mt-4">
         <input type="text" class="form-control mb-3" placeholder="Pesquisar por Nome">
         <div class="table-responsive">
@@ -53,7 +51,7 @@
                 <th>Saque Realizado</th>
               </tr>
             </thead>
-            <tbody class="transactionTable">
+            <tbody id="transactionTable">
               <tr>
                 <td>10/08/2024</td>
                 <td>25/08/2024</td>
@@ -105,8 +103,15 @@
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
   <div id="footer-container"></div>
+
+  <!-- Scripts -->
   <script src="./js/sidebar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
   <script src="./js/relatorios.js"></script>
   <script src="./js/footer.js"></script>
 </body>
