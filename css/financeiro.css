@@ -12,12 +12,14 @@ body {
     line-height: 1;
     background-color: #f8f9fa;
     overflow-x: hidden;
+    overflow-y: scroll;
+    /* overflow-y: scroll; resolve bug do modal */
 }
 
 /* Estilo do título */
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 350px;
     padding: 30px;
     transition: margin-left 0.3s ease;
 }
@@ -37,11 +39,9 @@ body {
 }
 
 .chart {
-    width: 100%;
-    max-width: 100%;
-
-    margin: 0 auto;
+    height: 200px;
 }
+
 
 #map {
     height: 400px;

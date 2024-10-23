@@ -23,11 +23,11 @@ var heatData = [
 ];
 
 // Cria o mapa de calor com opções personalizadas
-var heat = L.heatLayer(heatData, {
-    radius: 20,
-    blur: 15,
-    maxZoom: 18,
-    gradient: {
+L.heatLayer(heatData, {
+    "radius": 20,
+    "blur": 15,
+    "maxZoom": 18,
+    "gradient": {
         0.2: 'blue',
         0.4: 'green',
         0.6: 'yellow',

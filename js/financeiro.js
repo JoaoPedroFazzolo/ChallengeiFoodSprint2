@@ -3,19 +3,14 @@ import { createValueSalesChart } from "./graficos/valueSalesChart.js";
 import { creatNewClient } from "./graficos/newClient.js";
 import { creatAverageConsumption } from "./graficos/averageConsumption.js";
 import { createExpensesChart, updateExpensesChart } from "./graficos/expensesChart.js";
-import {
-  createHorizontalBarChart,
-  updateHorizontalChart,
-} from "./graficos/horizontalBarChart.js";
+import { createHorizontalBarChart, updateHorizontalChart } from "./graficos/horizontalBarChart.js";
 
 const salesCtx = document.getElementById("salesChart").getContext("2d");
 const valueSalesCtx = document.getElementById("valueSalesChart").getContext("2d");
 const newClientCtx = document.getElementById("newClientChart").getContext("2d");
 const averageConsumptionCtx = document.getElementById("averageConsumptionChart").getContext("2d");
 const expensesCtx = document.getElementById("expensesChart").getContext("2d");
-const horizontalCtx = document
-  .getElementById("horizontalBarChart")
-  .getContext("2d");
+const horizontalCtx = document.getElementById("horizontalBarChart").getContext("2d");
 
 
 const myModal = document.getElementById("myModal");
