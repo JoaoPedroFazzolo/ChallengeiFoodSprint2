@@ -139,19 +139,6 @@ input[type="text"]:focus {
     table {
         font-size: 0.9rem;
     }
-
-    /* .sidebar img {
-        display: none;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-    }
-
-    .toggle-btn {
-        left: 20px;
-        top: 20px;
-    } */
 }
 
 /* Responsivo para menores que 575px */
