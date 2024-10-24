@@ -33,7 +33,7 @@ body {
 
 .sidebar img {
     vertical-align: middle;
-    margin: 5px;
+    margin: 4px;
 }
 
 .sidebar a {
@@ -97,7 +97,7 @@ body {
         top: 10px;
         left: 10px;
         z-index: 1100;
-        background-color: #ff0000;
+        background-color: #dc3545;
         color: white;
         border: none;
         padding: 10px;

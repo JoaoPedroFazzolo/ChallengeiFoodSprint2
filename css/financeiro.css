@@ -34,8 +34,8 @@ body {
 }
 
 .canvas {
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    height: auto;
 }
 
 .chart {
@@ -44,7 +44,7 @@ body {
 
 
 #map {
-    height: 400px;
+    height: 60vh;
     width: 100%;
     margin: 0;
     padding: 0;

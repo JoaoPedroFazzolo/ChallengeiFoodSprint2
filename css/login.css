@@ -97,7 +97,7 @@ form.sign-in-form {
     line-height: 55px;
     color: #3e3e3e;
     transition: 0.5s;
-    font-size: 1.1rem;
+    font-size: 1.10px;
 }
 
 .input-field input {
@@ -106,7 +106,7 @@ form.sign-in-form {
     border: none;
     line-height: 1;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.10px;
     color: #3e3e3e;
 }
 
@@ -117,7 +117,7 @@ form.sign-in-form {
 
 .social-text {
     padding: 0.7rem 0;
-    font-size: 1rem;
+    font-size: 10px;
 }
 
 .social-media {
@@ -136,7 +136,7 @@ form.sign-in-form {
     border-radius: 50%;
     border: 1px solid #3e3e3e;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.10px;
     transition: 0.3s;
 }
 
@@ -329,7 +329,7 @@ form.sign-in-form {
     }
 
     .panel h3 {
-        font-size: 1.2rem;
+        font-size: .210px;
     }
 
     .panel p {
@@ -400,7 +400,7 @@ form.sign-in-form {
     }
 
     .content {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 10px;
     }
 
     .container {
