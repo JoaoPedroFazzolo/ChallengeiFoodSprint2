@@ -19,7 +19,7 @@ body {
 /* Estilo do título */
 
 .main-content {
-    margin-left: 350px;
+    margin-left: 300px;
     padding: 30px;
     transition: margin-left 0.3s ease;
 }

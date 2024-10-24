@@ -1,5 +1,5 @@
 // Array com os cargos
-const roles = ['Financeiro', 'Cardápio', 'Administrador', 'Atendimento'];
+const roles = ['Financeiro', 'Cardapio', 'Administrador', 'Atendimento'];
 const myModal = document.getElementById('addEmployeeModalLabel')
 const myInput = document.getElementById('editEmployeeModalLabel')
 
@@ -8,6 +8,14 @@ document.getElementById('saveEmployeeBtn').addEventListener('click', function ()
     const nome = document.getElementById('employeeName').value;
     const role = parseInt(document.getElementById('employeeRole').value);
     const dataEntrada = document.getElementById('employeeDate').value;
+    const data = new Date(dataEntrada);
+    const formattedDate = data.toLocaleDateString('pt-BR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+
+    const dataNova = `${formattedDate}`;
 
     // Verifica se todos os campos estão preenchidos corretamente
     if (!nome || isNaN(role) || !dataEntrada) {
@@ -25,7 +33,7 @@ document.getElementById('saveEmployeeBtn').addEventListener('click', function ()
         <td>${id}</td>
         <td>${nome}</td>
         <td><p class="status ${roles[role - 1].toLowerCase()}">${roles[role - 1]}</p></td>
-        <td>${dataEntrada}</td>
+        <td>${dataNova}</td>
         <td>-</td>
     `;
 
@@ -85,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function getRoleName(roleId) {
         switch (roleId) {
             case '1': return 'Financeiro';
-            case '2': return 'Cardápio';
+            case '2': return 'Cardapio';
             case '3': return 'Administrador';
             case '4': return 'Atendimento';
             default: return 'Desconhecido';
