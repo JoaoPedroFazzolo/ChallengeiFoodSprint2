@@ -7,6 +7,7 @@
 html,
 body {
     height: 100%;
+    font-size: 100%;
     line-height: 1;
     background-color: #f8f9fa;
     overflow-x: hidden;
@@ -25,14 +26,14 @@ table {
 
 th,
 td {
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
 }
 
 /* Botões */
 button {
     cursor: pointer;
-    font-size: 10px;
+    font-size: 1rem;
     font-weight: 500;
     padding: 10px 20px;
     border-radius: 5px;
@@ -51,6 +52,23 @@ button:hover {
     transition: margin-left 0.3s ease;
 }
 
+.btn-custom {
+    background-color: white;
+    color: #dc3545;
+    border: 1px solid #e0e0e0;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.btn-custom:hover {
+    background-color: #ffe6e6;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
 .table-container {
     background-color: white;
     padding: 20px;
@@ -62,8 +80,8 @@ button:hover {
 
 /* Editar as cores dos cargos */
 .status {
-    padding: 10px 0;
-    border-radius: 10px;
+    padding: .4rem 0;
+    border-radius: 2rem;
     text-align: center;
 }
 
@@ -90,7 +108,7 @@ input[type="text"] {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 1rem;
     width: 100%;
     transition: border-color 0.3s ease;
 }
@@ -110,8 +128,13 @@ input[type="text"]:focus {
         gap: 15px;
     }
 
+    .btn-custom {
+        padding: 20px 20px;
+        font-size: 1rem;
+    }
+
     input[type="text"] {
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
     }
 
     table {
@@ -123,6 +146,11 @@ input[type="text"]:focus {
 @media (max-width: 575px) {
     h2 {
         font-size: 1.5rem;
+    }
+
+    .btn-custom {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 
     table {
